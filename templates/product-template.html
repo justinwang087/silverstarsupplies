@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Category &mdash; Silverstar Roofing Supplies</title>
+  <meta name="description" content="TODO: product category description.">
+  <link rel="icon" href="images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-logo" href="index.html">
+        <img src="images/logo.svg" alt="Silverstar Roofing Supplies" width="140" height="44">
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Menu</span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <nav id="site-nav" class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="products-shingles.html">Shingles</a>
+        <a href="products-commercial.html">Commercial</a>
+        <a href="products-accessories.html">Accessories</a>
+        <a href="partners.html">Partners</a>
+        <a href="location.html">Location &amp; Hours</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="site-header__contact">
+        <span class="hours-badge" data-hours-badge>&mdash;</span>
+        <a class="phone-link" href="tel:+16475374486">647 537 4486</a>
+      </div>
+    </div>
+  </header>
+
+  <!--
+    OWNER: Person B (build plan tasks B1, B3)
+    Product category hero section with featured image and intro text.
+    Copy and customize this section for each product category page.
+  -->
+  <section class="product-hero">
+    <div class="container product-hero__inner">
+      <div class="product-hero__copy">
+        <h1>Product Category Name</h1>
+        <p class="product-hero__lede">
+          TODO: short introduction describing this category. Mention key
+          benefits, brands carried, and any distinctions. 1–2 sentences.
+        </p>
+      </div>
+      <div class="product-hero__media">
+        <img src="images/products/category-hero.jpg" alt="TODO: category hero image" width="480" height="360">
+      </div>
+    </div>
+  </section>
+
+  <main class="container product-section">
+    <!--
+      Product highlights or specs section (optional).
+      Remove this entire section if not needed for this category.
+    -->
+    <section class="product-features">
+      <p class="section-label">What we stock</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Feature or Spec One</h3>
+          <p>TODO: brief explanation of this feature or product specification.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Feature or Spec Two</h3>
+          <p>TODO: brief explanation of this feature or product specification.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Feature or Spec Three</h3>
+          <p>TODO: brief explanation of this feature or product specification.</p>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      Individual product cards section.
+      Duplicate the .product-card markup for each product in the category.
+    -->
+    <section class="product-listings">
+      <p class="section-label">Individual products</p>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-card__media">
+            <img src="images/products/product-1.jpg" alt="TODO: Product Name photo">
+          </div>
+          <div class="product-card__content">
+            <h3>Product Name</h3>
+            <p class="product-card__description">TODO: short description of this specific product, highlighting key specs or use case.</p>
+            <div class="product-card__specs">
+              <dl>
+                <dt>Specification 1:</dt>
+                <dd>Value or detail</dd>
+                <dt>Specification 2:</dt>
+                <dd>Value or detail</dd>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__media">
+            <img src="images/products/product-2.jpg" alt="TODO: Product Name photo">
+          </div>
+          <div class="product-card__content">
+            <h3>Product Name</h3>
+            <p class="product-card__description">TODO: short description of this specific product, highlighting key specs or use case.</p>
+            <div class="product-card__specs">
+              <dl>
+                <dt>Specification 1:</dt>
+                <dd>Value or detail</dd>
+                <dt>Specification 2:</dt>
+                <dd>Value or detail</dd>
+              </dl>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <p class="product-cta"><a class="btn btn--primary" href="contact.html">Request a quote</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__col">
+        <strong>Silverstar Roofing Supplies</strong>
+        <p>160 Silver Star Blvd, Scarborough, ON M1V 5P2<br>
+          <a class="phone-link" href="tel:+16475374486">647 537 4486</a></p>
+      </div>
+      <div class="site-footer__col">
+        <span class="site-footer__label">Hours</span>
+        <p>Apr 1&ndash;Nov 30: 6:30am&ndash;9:00pm<br>
+          Dec 1&ndash;Mar 31: 9:00am&ndash;5:00pm</p>
+      </div>
+      <div class="site-footer__col">
+        <span class="site-footer__label">Quick links</span>
+        <nav class="site-footer__nav">
+          <a href="products-shingles.html">Shingles</a>
+          <a href="products-commercial.html">Commercial</a>
+          <a href="products-accessories.html">Accessories</a>
+          <a href="partners.html">Partners</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+    <p class="site-footer__legal">We are a wholesaler of roofing materials &mdash; we do not provide installation services.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

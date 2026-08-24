@@ -2,40 +2,137 @@
   products.css
   ------------
   Shared styles for all three product pages (shingles, commercial,
-  accessories) &mdash; one template, one stylesheet, three files.
-  Owner: Person B.
+  accessories). Includes the product hero section and individual
+  product card layouts. Owner: Person B.
   Depends on tokens.css + base.css (loaded before this on each page).
 */
 
-.product-intro { max-width: 66ch; font-size: var(--text-lg); color: var(--color-ink-soft); }
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-5);
-  margin: var(--space-6) 0;
+.section-label {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-steel);
+  margin: 0 0 var(--space-4);
 }
-.product-card {
-  display: flex;
-  gap: var(--space-4);
+
+/* Product hero section (category intro with image) */
+.product-hero {
+  padding: var(--space-8) 0;
+  background: var(--color-paper-alt);
+}
+.product-hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  align-items: center;
+}
+.product-hero h1 { margin-bottom: var(--space-3); }
+.product-hero__lede { font-size: var(--text-lg); color: var(--color-ink-soft); }
+.product-hero__media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--color-line);
+}
+
+.product-section {
+  padding: var(--space-8) 0;
+}
+
+/* Product features/specs grid (optional highlights section) */
+.product-features {
+  margin-bottom: var(--space-10);
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+.feature-card {
   padding: var(--space-5);
   border: 1px solid var(--color-line);
   border-radius: var(--radius);
   background: var(--color-paper);
 }
-.product-card img {
-  width: 120px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: var(--radius);
-  background: var(--color-line);
-  flex: none;
+.feature-card:hover { border-color: var(--color-red); }
+.feature-card h3 { margin: 0 0 var(--space-2); font-size: var(--text-base); }
+.feature-card p { margin: 0; font-size: var(--text-sm); color: var(--color-ink-soft); }
+
+/* Product listings section */
+.product-listings {
+  margin-bottom: var(--space-8);
 }
-.product-card h3 { margin: 0 0 var(--space-2); font-size: var(--text-base); }
-.product-card p { margin: 0; font-size: var(--text-sm); color: var(--color-ink-soft); }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  margin: var(--space-6) 0;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-paper);
+  overflow: hidden;
+}
+.product-card:hover { border-color: var(--color-red); }
+
+.product-card__media {
+  margin: calc(var(--space-5) * -1) calc(var(--space-5) * -1) var(--space-4) calc(var(--space-5) * -1);
+}
+.product-card__media img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  background: var(--color-line);
+}
+
+.product-card__content h3 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-lg);
+}
+
+.product-card__description {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-base);
+  color: var(--color-ink-soft);
+}
+
+.product-card__specs {
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-line);
+}
+.product-card__specs dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+}
+.product-card__specs dt {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.product-card__specs dd {
+  margin: 0;
+  color: var(--color-ink-soft);
+}
 
 .product-cta { margin-top: var(--space-6); }
 
+/* Legacy support: older product-intro and product-grid classes */
+.product-intro { max-width: 66ch; font-size: var(--text-lg); color: var(--color-ink-soft); }
+
 @media (max-width: 860px) {
+  .product-hero__inner { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
   .product-grid { grid-template-columns: 1fr; }
 }
