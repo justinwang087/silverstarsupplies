@@ -3,12 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Silver Star Supplies</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Silverstar Roofing Supplies &mdash; Wholesale Roofing Materials in Scarborough</title>
+  <meta name="description" content="Silverstar Roofing Supplies is a wholesale supplier of residential and commercial roofing materials in Scarborough, ON &mdash; shingles, underlayment, and accessories from BP, GAF, Owens Corning, CertainTeed, and IKO.">
+  <link rel="icon" href="images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-  <h1>Silver Star Supplies</h1>
 
-  <script src="script.js"></script>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-logo" href="index.html">
+        <img src="images/logo.svg" alt="Silverstar Roofing Supplies" width="140" height="44">
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Menu</span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="products-shingles.html">Shingles</a>
+        <a href="products-commercial.html">Commercial</a>
+        <a href="products-accessories.html">Accessories</a>
+        <a href="partners.html">Partners</a>
+        <a href="location.html">Location &amp; Hours</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="site-header__contact">
+        <span class="hours-badge" data-hours-badge>&mdash;</span>
+        <a class="phone-link" href="tel:+16475374486">647 537 4486</a>
+      </div>
+    </div>
+  </header>
+
+  <!--
+    OWNER: Person A (Home & Location — see build plan, task A2)
+    TODO: replace the placeholder image + copy below with a real yard
+    photo and finished hero copy. Structure/classes are ready to style
+    in css/home.css.
+  -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <p class="eyebrow">Wholesale roofing supplies &middot; Scarborough, ON</p>
+        <h1>Roofing materials, ready when your crew is.</h1>
+        <p class="hero__lede">
+          We stock residential shingles, commercial roofing systems, and
+          accessories from BP, GAF, Owens Corning, CertainTeed, and IKO.
+          We're a wholesaler &mdash; we do not provide installation services.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="tel:+16475374486">Call 647 537 4486</a>
+          <a class="btn btn--secondary" href="location.html">Get directions</a>
+        </div>
+      </div>
+      <div class="hero__media">
+        <!-- TODO: swap for a real photo of the yard/loading area -->
+        <img src="images/hero-yard.jpg" alt="TODO: photo of the Silverstar yard and stacked shingle inventory" width="640" height="480">
+      </div>
+    </div>
+  </section>
+
+  <!--
+    OWNER: Person A (task A3)
+    Brand logos link out to the Partners page (Person C's iframe viewer),
+    not directly to the manufacturer sites.
+  -->
+  <section class="section brand-strip">
+    <div class="container">
+      <p class="section-label">Brands we carry</p>
+      <div class="brand-strip__logos">
+        <!-- TODO: replace with licensed manufacturer logos (see Track B, task B4 in the earlier content plan) -->
+        <a href="partners.html">BP</a>
+        <a href="partners.html">GAF</a>
+        <a href="partners.html">Owens Corning</a>
+        <a href="partners.html">CertainTeed</a>
+        <a href="partners.html">IKO Cambridge</a>
+        <a href="partners.html">IKO Dynasty</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OWNER: Person A (task A4) -->
+  <section class="section section--alt">
+    <div class="container">
+      <p class="section-label">What we stock</p>
+      <div class="category-grid">
+        <a class="category-card" href="products-shingles.html">
+          <h3>Shingles</h3>
+          <p>Residential shingles from BP, GAF, Owens Corning, CertainTeed, and IKO.</p>
+        </a>
+        <a class="category-card" href="products-commercial.html">
+          <h3>Commercial Products</h3>
+          <p>Cap-APP, Cap-TP250, Base-TF95, ProtecoBoard, FibreBoard, and more.</p>
+        </a>
+        <a class="category-card" href="products-accessories.html">
+          <h3>Accessories</h3>
+          <p>Tools, underlayment, metal accessories, vents, and downspouts.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OWNER: Person A (task A5, wired to js/main.js's hours badge) -->
+  <section class="section hours-summary">
+    <div class="container hours-summary__inner">
+      <div>
+        <p class="section-label">Hours &amp; location</p>
+        <p><span class="hours-badge" data-hours-badge>&mdash;</span></p>
+        <p>160 Silver Star Blvd, Scarborough, ON M1V 5P2</p>
+        <a class="btn btn--secondary" href="location.html">Full hours &amp; map</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__col">
+        <strong>Silverstar Roofing Supplies</strong>
+        <p>160 Silver Star Blvd, Scarborough, ON M1V 5P2<br>
+          <a class="phone-link" href="tel:+16475374486">647 537 4486</a></p>
+      </div>
+      <div class="site-footer__col">
+        <span class="site-footer__label">Hours</span>
+        <p>Apr 1&ndash;Nov 30: 6:30am&ndash;9:00pm<br>
+          Dec 1&ndash;Mar 31: 9:00am&ndash;5:00pm</p>
+      </div>
+      <div class="site-footer__col">
+        <span class="site-footer__label">Quick links</span>
+        <nav class="site-footer__nav">
+          <a href="products-shingles.html">Shingles</a>
+          <a href="products-commercial.html">Commercial</a>
+          <a href="products-accessories.html">Accessories</a>
+          <a href="partners.html">Partners</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+    <p class="site-footer__legal">We are a wholesaler of roofing materials &mdash; we do not provide installation services.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,68 @@
+/*
+  tokens.css
+  ----------
+  Design tokens for the Silverstar Roofing Supplies site: color, type, spacing.
+  This file is the single source of truth for the palette — every other
+  stylesheet should reference these custom properties, never a hex value
+  directly, so the brand stays consistent as three people build different
+  pages.
+
+  Colors were sampled from the existing logo (red roofline + silver/grey
+  star), not invented from scratch.
+
+  OWNERSHIP: part of Phase 0 scaffolding. Once the team starts building
+  individual pages, treat this file as frozen — if a page needs a new
+  token, add it here and flag it to the other two rather than hardcoding
+  a one-off color in a page-specific stylesheet.
+*/
+
+:root {
+  /* ---- Brand ---- */
+  --color-red:        #C6281F; /* primary brand red, from the logo roofline */
+  --color-red-dark:    #9E1F18; /* hover / active state for red elements */
+  --color-red-soft:    #F4DEDC; /* light red tint, for badges/backgrounds */
+
+  --color-steel:       #55606B; /* dark grey/steel, from the logo star */
+  --color-steel-light: #A9B0B6; /* lighter steel, secondary UI */
+  --color-steel-soft:  #EAEDEF; /* very light steel tint, section backgrounds */
+
+  /* ---- Neutrals ---- */
+  --color-ink:         #1E2226; /* primary text */
+  --color-ink-soft:    #4B535A; /* secondary text */
+  --color-paper:       #FFFFFF; /* page background */
+  --color-paper-alt:   #F5F6F7; /* alternating section background */
+  --color-line:        #DEE2E5; /* hairline borders/dividers */
+  --color-line-strong: #C3C9CD; /* stronger borders (inputs, cards) */
+
+  /* ---- Status (open/closed badge, form states) ---- */
+  --color-open:        #2E7D4F;
+  --color-open-soft:   #E3F1E8;
+  --color-closed:      #9E1F18;
+  --color-closed-soft: #F4DEDC;
+
+  /* ---- Type ---- */
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
+  --font-body:    "Source Sans 3", "Segoe UI", Arial, sans-serif;
+
+  --text-xs:   0.8125rem;  /* 13px */
+  --text-sm:   0.9375rem;  /* 15px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg:   1.1875rem;  /* 19px */
+  --text-xl:   1.5rem;     /* 24px */
+  --text-2xl:  2rem;       /* 32px */
+  --text-3xl:  2.75rem;    /* 44px */
+
+  /* ---- Spacing scale ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  /* ---- Layout ---- */
+  --max-width: 1120px;
+  --radius: 3px;
+}

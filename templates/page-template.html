@@ -1,0 +1,104 @@
+<!--
+  templates/page-template.html
+  -----------------------------
+  Starting point for every new page. Copy this whole file to the repo
+  root under its real name (e.g. contact.html), then:
+
+    1. Replace PAGE_TITLE and PAGE_DESCRIPTION in <head>.
+    2. Add a page-specific stylesheet link if this page needs one
+       (css/home.css, css/products.css, css/partners.css, css/contact.css)
+       — keep it to ONE file per page/template so ownership stays clean.
+    3. Set aria-current="page" on the matching nav link.
+    4. Replace <!-- PAGE CONTENT --> with the real content.
+    5. Add a page-specific <script> tag at the bottom only if this page
+       needs its own JS (partners.html and contact.html do; the others
+       shouldn't need to).
+
+  This fixes the old site's #1 bug by construction: explicit UTF-8 on
+  every single page, every time.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAGE_TITLE &mdash; Silverstar Roofing Supplies</title>
+  <meta name="description" content="PAGE_DESCRIPTION">
+  <link rel="icon" href="images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <!-- <link rel="stylesheet" href="css/PAGE.css"> -->
+</head>
+<body>
+
+  <!-- ==== copied from templates/header-footer.html ==== -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-logo" href="index.html">
+        <img src="images/logo.svg" alt="Silverstar Roofing Supplies" width="140" height="44">
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Menu</span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="products-shingles.html">Shingles</a>
+        <a href="products-commercial.html">Commercial</a>
+        <a href="products-accessories.html">Accessories</a>
+        <a href="partners.html">Partners</a>
+        <a href="location.html">Location &amp; Hours</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="site-header__contact">
+        <span class="hours-badge" data-hours-badge>&mdash;</span>
+        <a class="phone-link" href="tel:+16475374486">647 537 4486</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="container section">
+    <h1>PAGE_TITLE</h1>
+    <p>Replace this with the page's real content.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__col">
+        <strong>Silverstar Roofing Supplies</strong>
+        <p>160 Silver Star Blvd, Scarborough, ON M1V 5P2<br>
+          <a class="phone-link" href="tel:+16475374486">647 537 4486</a></p>
+      </div>
+      <div class="site-footer__col">
+        <span class="site-footer__label">Hours</span>
+        <p>Apr 1&ndash;Nov 30: 6:30am&ndash;9:00pm<br>
+          Dec 1&ndash;Mar 31: 9:00am&ndash;5:00pm</p>
+      </div>
+      <div class="site-footer__col">
+        <span class="site-footer__label">Quick links</span>
+        <nav class="site-footer__nav">
+          <a href="products-shingles.html">Shingles</a>
+          <a href="products-commercial.html">Commercial</a>
+          <a href="products-accessories.html">Accessories</a>
+          <a href="partners.html">Partners</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+    <p class="site-footer__legal">We are a wholesaler of roofing materials &mdash; we do not provide installation services.</p>
+  </footer>
+  <!-- ==== end copied block ==== -->
+
+  <script src="js/main.js"></script>
+  <!-- <script src="js/PAGE.js"></script> -->
+</body>
+</html>

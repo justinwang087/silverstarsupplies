@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shingles &mdash; Silverstar Roofing Supplies</title>
+  <meta name="description" content="Residential shingles from BP, GAF, Owens Corning, CertainTeed, and IKO &mdash; wholesale at Silverstar Roofing Supplies, Scarborough, ON.">
+  <link rel="icon" href="images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-logo" href="index.html">
+        <img src="images/logo.svg" alt="Silverstar Roofing Supplies" width="140" height="44">
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Menu</span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <nav id="site-nav" class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="products-shingles.html" aria-current="page">Shingles</a>
+        <a href="products-commercial.html">Commercial</a>
+        <a href="products-accessories.html">Accessories</a>
+        <a href="partners.html">Partners</a>
+        <a href="location.html">Location &amp; Hours</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="site-header__contact">
+        <span class="hours-badge" data-hours-badge>&mdash;</span>
+        <a class="phone-link" href="tel:+16475374486">647 537 4486</a>
+      </div>
+    </div>
+  </header>
+
+  <!--
+    OWNER: Person B (build plan tasks B1, B3)
+    This structure is reused as-is for products-commercial.html and
+    products-accessories.html &mdash; keep the three files in sync if the
+    layout changes; only the .product-grid contents differ per page.
+    TODO: real photos + finished copy for each line below.
+  -->
+  <main class="container section">
+    <h1>Shingles</h1>
+    <p class="product-intro">Residential shingles, wholesale only &mdash; we do not provide installation services.</p>
+
+    <div class="product-grid">
+      <article class="product-card">
+        <img src="images/products/shingles-bp.jpg" alt="TODO: BP shingles photo">
+        <div><h3>BP</h3><p>TODO: short description.</p></div>
+      </article>
+      <article class="product-card">
+        <img src="images/products/shingles-gaf.jpg" alt="TODO: GAF shingles photo">
+        <div><h3>GAF</h3><p>TODO: short description.</p></div>
+      </article>
+      <article class="product-card">
+        <img src="images/products/shingles-owens-corning.jpg" alt="TODO: Owens Corning shingles photo">
+        <div><h3>Owens Corning</h3><p>TODO: short description.</p></div>
+      </article>
+      <article class="product-card">
+        <img src="images/products/shingles-certainteed.jpg" alt="TODO: CertainTeed shingles photo">
+        <div><h3>CertainTeed</h3><p>TODO: short description.</p></div>
+      </article>
+      <article class="product-card">
+        <img src="images/products/shingles-iko-cambridge.jpg" alt="TODO: IKO Cambridge shingles photo">
+        <div><h3>IKO Cambridge</h3><p>TODO: short description.</p></div>
+      </article>
+      <article class="product-card">
+        <img src="images/products/shingles-iko-dynasty.jpg" alt="TODO: IKO Dynasty shingles photo">
+        <div><h3>IKO Dynasty</h3><p>TODO: short description.</p></div>
+      </article>
+    </div>
+
+    <p class="product-cta"><a class="btn btn--primary" href="contact.html">Request a quote</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__col">
+        <strong>Silverstar Roofing Supplies</strong>
+        <p>160 Silver Star Blvd, Scarborough, ON M1V 5P2<br>
+          <a class="phone-link" href="tel:+16475374486">647 537 4486</a></p>
+      </div>
+      <div class="site-footer__col">
+        <span class="site-footer__label">Hours</span>
+        <p>Apr 1&ndash;Nov 30: 6:30am&ndash;9:00pm<br>
+          Dec 1&ndash;Mar 31: 9:00am&ndash;5:00pm</p>
+      </div>
+      <div class="site-footer__col">
+        <span class="site-footer__label">Quick links</span>
+        <nav class="site-footer__nav">
+          <a href="products-shingles.html">Shingles</a>
+          <a href="products-commercial.html">Commercial</a>
+          <a href="products-accessories.html">Accessories</a>
+          <a href="partners.html">Partners</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+    <p class="site-footer__legal">We are a wholesaler of roofing materials &mdash; we do not provide installation services.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!--
+  templates/header-footer.html
+  -----------------------------
+  This is NOT a page — it's the reference copy of the header and footer.
+  There's no include mechanism in a plain-JS/no-build site, so every real
+  page (index.html, location.html, etc.) pastes both blocks in directly.
+
+  OWNERSHIP: part of Phase 0 scaffolding, frozen after setup. If the nav,
+  logo, or footer ever need to change, update this reference file AND
+  every page that copied it (see task Q1 on the build board — the
+  header/footer sync check exists specifically because of this).
+
+  On each real page:
+    - Set aria-current="page" on the nav link matching that page.
+    - Everything else is copied verbatim.
+-->
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="index.html">
+      <img src="images/logo.svg" alt="Silverstar Roofing Supplies" width="140" height="44">
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Menu</span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="products-shingles.html">Shingles</a>
+      <a href="products-commercial.html">Commercial</a>
+      <a href="products-accessories.html">Accessories</a>
+      <a href="partners.html">Partners</a>
+      <a href="location.html">Location &amp; Hours</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="site-header__contact">
+      <span class="hours-badge" data-hours-badge>&mdash;</span>
+      <a class="phone-link" href="tel:+16475374486">647 537 4486</a>
+    </div>
+  </div>
+</header>
+
+<!-- ... page content goes here ... -->
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__col">
+      <strong>Silverstar Roofing Supplies</strong>
+      <p>160 Silver Star Blvd, Scarborough, ON M1V 5P2<br>
+        <a class="phone-link" href="tel:+16475374486">647 537 4486</a></p>
+    </div>
+    <div class="site-footer__col">
+      <span class="site-footer__label">Hours</span>
+      <p>Apr 1&ndash;Nov 30: 6:30am&ndash;9:00pm<br>
+        Dec 1&ndash;Mar 31: 9:00am&ndash;5:00pm</p>
+    </div>
+    <div class="site-footer__col">
+      <span class="site-footer__label">Quick links</span>
+      <nav class="site-footer__nav">
+        <a href="products-shingles.html">Shingles</a>
+        <a href="products-commercial.html">Commercial</a>
+        <a href="products-accessories.html">Accessories</a>
+        <a href="partners.html">Partners</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+  <p class="site-footer__legal">We are a wholesaler of roofing materials &mdash; we do not provide installation services.</p>
+</footer>
