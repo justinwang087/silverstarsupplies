@@ -44,93 +44,95 @@
 
   <!--
     OWNER: Person B (build plan tasks B1, B3)
-    Product category hero section with featured image and intro text.
-    Copy and customize this section for each product category page.
+    Single-product template using the shared products.css layout.
+    Copy and image should be customized per product, while the overall
+    composition stays consistent with the rest of the site.
   -->
   <section class="product-hero">
     <div class="container product-hero__inner">
       <div class="product-hero__copy">
-        <h1>Product Category Name</h1>
+        <p class="section-label">Featured product</p>
+        <h1>Product Name</h1>
         <p class="product-hero__lede">
-          TODO: short introduction describing this category. Mention key
-          benefits, brands carried, and any distinctions. 1–2 sentences.
+          TODO: short description of the product, including the key benefit,
+          material, or intended use in 1&ndash;2 sentences.
         </p>
+        <p class="product-price">$0.00</p>
+        <div class="product-hero__actions">
+          <a class="btn btn--primary" href="contact.html">Request a quote</a>
+          <a class="btn btn--secondary" href="#product-details">Scroll down</a>
+        </div>
       </div>
       <div class="product-hero__media">
-        <img src="images/products/category-hero.jpg" alt="TODO: category hero image" width="480" height="360">
+        <img src="images/products/product-feature.jpg" alt="TODO: Product Name photo" width="480" height="360">
       </div>
     </div>
   </section>
 
-  <main class="container product-section">
-    <!--
-      Product highlights or specs section (optional).
-      Remove this entire section if not needed for this category.
-    -->
-    <section class="product-features">
-      <p class="section-label">What we stock</p>
-      <div class="features-grid">
-        <div class="feature-card">
-          <h3>Feature or Spec One</h3>
-          <p>TODO: brief explanation of this feature or product specification.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Feature or Spec Two</h3>
-          <p>TODO: brief explanation of this feature or product specification.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Feature or Spec Three</h3>
-          <p>TODO: brief explanation of this feature or product specification.</p>
-        </div>
+  <section class="product-similar">
+    <div class="container">
+      <p class="section-label">Similar products</p>
+      <div class="similar-products">
+        <a class="similar-product-card" href="contact.html">
+          <img src="images/products/product-similar-1.jpg" alt="TODO: Similar product one">
+          <div>
+            <h3>Similar Product One</h3>
+            <p>TODO: brief recommendation for a related product or same-brand alternative.</p>
+          </div>
+        </a>
+        <a class="similar-product-card" href="contact.html">
+          <img src="images/products/product-similar-2.jpg" alt="TODO: Similar product two">
+          <div>
+            <h3>Similar Product Two</h3>
+            <p>TODO: brief recommendation for a product with a comparable jobsite purpose.</p>
+          </div>
+        </a>
+        <a class="similar-product-card" href="contact.html">
+          <img src="images/products/product-similar-3.jpg" alt="TODO: Similar product three">
+          <div>
+            <h3>Similar Product Three</h3>
+            <p>TODO: brief recommendation for a same-brand or same-category alternative.</p>
+          </div>
+        </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!--
-      Individual product cards section.
-      Duplicate the .product-card markup for each product in the category.
-    -->
-    <section class="product-listings">
-      <p class="section-label">Individual products</p>
-      <div class="product-grid">
-        <article class="product-card">
-          <div class="product-card__media">
-            <img src="images/products/product-1.jpg" alt="TODO: Product Name photo">
-          </div>
-          <div class="product-card__content">
-            <h3>Product Name</h3>
-            <p class="product-card__description">TODO: short description of this specific product, highlighting key specs or use case.</p>
-            <div class="product-card__specs">
-              <dl>
-                <dt>Specification 1:</dt>
-                <dd>Value or detail</dd>
-                <dt>Specification 2:</dt>
-                <dd>Value or detail</dd>
-              </dl>
-            </div>
-          </div>
-        </article>
+  <main id="product-details" class="product-details">
+    <div class="container product-details__inner">
+      <article class="detail-card detail-card--image-left">
+        <div class="detail-card__media">
+          <img src="images/products/product-detail-1.jpg" alt="TODO: Product close-up detail">
+        </div>
+        <div class="detail-card__content">
+          <p class="section-label">Overview</p>
+          <h2>Built for dependable performance</h2>
+          <p>TODO: Add the first detailed explanation here. Describe the product's purpose, materials, and why contractors choose it for roofing projects.</p>
+        </div>
+      </article>
 
-        <article class="product-card">
-          <div class="product-card__media">
-            <img src="images/products/product-2.jpg" alt="TODO: Product Name photo">
-          </div>
-          <div class="product-card__content">
-            <h3>Product Name</h3>
-            <p class="product-card__description">TODO: short description of this specific product, highlighting key specs or use case.</p>
-            <div class="product-card__specs">
-              <dl>
-                <dt>Specification 1:</dt>
-                <dd>Value or detail</dd>
-                <dt>Specification 2:</dt>
-                <dd>Value or detail</dd>
-              </dl>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+      <article class="detail-card detail-card--image-right">
+        <div class="detail-card__content">
+          <p class="section-label">Details</p>
+          <h2>Made for real jobsite conditions</h2>
+          <p>TODO: Add the second detailed section here. Mention durability, installation notes, compatibility, or key specifications that matter to buyers.</p>
+        </div>
+        <div class="detail-card__media">
+          <img src="images/products/product-detail-2.jpg" alt="TODO: Product installation or field view">
+        </div>
+      </article>
 
-    <p class="product-cta"><a class="btn btn--primary" href="contact.html">Request a quote</a></p>
+      <article class="detail-card detail-card--image-left">
+        <div class="detail-card__media">
+          <img src="images/products/product-detail-3.jpg" alt="TODO: Product storage or application detail">
+        </div>
+        <div class="detail-card__content">
+          <p class="section-label">Why it works</p>
+          <h2>Practical performance for everyday roofing work</h2>
+          <p>TODO: Add the final product description here. Explain value, availability, and the type of jobs this product is designed to support.</p>
+        </div>
+      </article>
+    </div>
   </main>
 
   <footer class="site-footer">
