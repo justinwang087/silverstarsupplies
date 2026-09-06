@@ -42,29 +42,21 @@
     </div>
   </header>
 
-  <!--
-    OWNER: Person A (build plan tasks A6, A7)
-    TODO:
-      - Replace the placeholder <iframe> below with a real Google Maps embed.
-      - The hours table should mark today's row / open state using
-        window.Silverstar.isOpenNow() from js/main.js, instead of relying
-        only on the header badge.
-  -->
+  <!-- OWNER: Person A (build plan tasks A6, A7) -->
   <main class="container section">
     <h1>Location &amp; Hours</h1>
-    <p>160 Silver Star Blvd, Scarborough, ON M1V 5P2 &mdash;
-      <a href="https://maps.google.com/?q=160+Silver+Star+Blvd,+Scarborough,+ON+M1V+5P2">Get directions</a>
+    <p>29 Redlea Ave, Scarborough, ON M1V 4S3 &mdash;
+      <a href="https://maps.google.com/?q=29+Redlea+Ave,+Scarborough,+ON+M1V+4S3">Get directions</a>
     </p>
 
-    <!-- TODO: replace with a real Google Maps embed -->
     <iframe title="Map to Silverstar Roofing Supplies" width="100%" height="360"
-      src="" loading="lazy" style="border:1px solid var(--color-line);"></iframe>
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2878.6465305034553!2d-79.30539462433346!3d43.82169074151776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4d3f7e01ece55%3A0xc5732c32e0ef354c!2s29%20Redlea%20Ave%2C%20Scarborough%2C%20ON%20M1V%204S3!5e0!3m2!1sen!2sca!4v1788736712322!5m2!1sen!2sca" loading="lazy" style="border:1px solid var(--color-line);"></iframe>
 
     <h2 class="section-label" style="margin-top:2rem;">Hours</h2>
     <table>
       <tbody>
-        <tr><td>April 1 &ndash; November 30</td><td>6:30am &ndash; 9:00pm</td></tr>
-        <tr><td>December 1 &ndash; March 31</td><td>9:00am &ndash; 5:00pm</td></tr>
+        <tr data-season="summer"><td>April 1 &ndash; November 30</td><td>6:30am &ndash; 9:00pm</td><td data-status>&mdash;</td></tr>
+        <tr data-season="winter"><td>December 1 &ndash; March 31</td><td>9:00am &ndash; 5:00pm</td><td data-status>&mdash;</td></tr>
       </tbody>
     </table>
 
@@ -75,7 +67,7 @@
     <div class="site-footer__inner">
       <div class="site-footer__col">
         <strong>Silverstar Roofing Supplies</strong>
-        <p>160 Silver Star Blvd, Scarborough, ON M1V 5P2<br>
+        <p>29 Redlea Ave, Scarborough, ON M1V 4S3<br>
           <a class="phone-link" href="tel:+16475374486">647 537 4486</a></p>
       </div>
       <div class="site-footer__col">
@@ -98,5 +90,32 @@
   </footer>
 
   <script src="js/main.js"></script>
-</body>
-</html>
+  <script>
+    // Mark current season and open/closed status in hours table
+    function updateHoursTable() {
+      const now = new Date();
+      const month = now.getMonth() + 1; // 1-12
+      const currentSeason = (month >= 4 && month <= 11) ? 'summer' : 'winter';
+      
+      // Mark current season row
+      document.querySelectorAll('table tr[data-season]').forEach(row => {
+        row.classList.toggle('current-season', row.dataset.season === currentSeason);
+      });
+      
+      // Update open/closed status if Silverstar is loaded
+      if (window.Silverstar && typeof window.Silverstar.isOpenNow === 'function') {
+        const isOpen = window.Silverstar.isOpenNow();
+        const statusText = isOpen ? 'Open now' : 'Closed';
+        document.querySelectorAll('[data-status]').forEach(cell => {
+          cell.textContent = statusText;
+          cell.classList.toggle('status-open', isOpen);
+          cell.classList.toggle('status-closed', !isOpen);
+        });
+      }
+    }
+    
+    // Run after DOM is ready
+    updateHoursTable();
+    // Recheck every 5 minutes (same as main.js badge)
+    setInterval(updateHoursTable, 5 * 60 * 1000);
+  </script>

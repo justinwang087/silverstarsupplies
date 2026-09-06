@@ -35,6 +35,28 @@
   background: var(--color-line);
 }
 
+@media (max-width: 768px) {
+  .hero {
+    padding: var(--space-6) 0;
+  }
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  .hero__lede {
+    font-size: var(--text-base);
+  }
+  .eyebrow {
+    margin: 0 0 var(--space-2);
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: var(--text-xl);
+  }
+}
+
 .section-label {
   font-family: var(--font-display);
   font-size: var(--text-xs);
@@ -56,8 +78,19 @@
   font-family: var(--font-display);
   font-size: var(--text-sm);
   color: var(--color-ink-soft);
+  transition: all 0.2s ease;
 }
 .brand-strip__logos a:hover { border-color: var(--color-red); color: var(--color-ink); }
+
+@media (max-width: 768px) {
+  .brand-strip__logos {
+    gap: var(--space-3);
+  }
+  .brand-strip__logos a {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-xs);
+  }
+}
 
 .category-grid {
   display: grid;
@@ -70,14 +103,88 @@
   background: var(--color-paper);
   border: 1px solid var(--color-line);
   border-radius: var(--radius);
+  transition: border-color 0.2s ease;
 }
 .category-card:hover { border-color: var(--color-red); }
 .category-card h3 { margin-bottom: var(--space-2); }
 .category-card p { margin: 0; color: var(--color-ink-soft); font-size: var(--text-sm); }
 
+@media (max-width: 768px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .category-card {
+    padding: var(--space-4);
+  }
+}
+
 .hours-summary__inner p { margin: 0 0 var(--space-2); }
 
-@media (max-width: 860px) {
-  .hero__inner { grid-template-columns: 1fr; }
-  .category-grid { grid-template-columns: 1fr; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-4) 0;
 }
+
+table tr { border-bottom: 1px solid var(--color-line); }
+table tr:last-child { border-bottom: none; }
+table td { padding: var(--space-3); }
+
+table tr.current-season { background: var(--color-paper-alt); }
+table tr.current-season td:first-child { font-weight: 600; color: var(--color-ink); }
+
+[data-status] {
+  text-align: center;
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+[data-status].status-open { color: var(--color-green, #22a34a); }
+[data-status].status-closed { color: var(--color-red); }
+
+@media (max-width: 768px) {
+  table {
+    margin: var(--space-3) 0;
+  }
+  table td {
+    padding: var(--space-2);
+    font-size: var(--text-sm);
+  }
+  [data-status] {
+    font-size: var(--text-xs);
+  }
+}
+
+@media (max-width: 640px) {
+  table, thead, tbody, tr, td {
+    display: block;
+    width: 100%;
+  }
+  table tr {
+    margin-bottom: var(--space-4);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+  }
+  table tr.current-season {
+    background: var(--color-red-soft);
+    border-color: var(--color-red);
+  }
+  table td {
+    padding: var(--space-2) 0;
+    text-align: left;
+  }
+  table td::before {
+    font-weight: 600;
+    margin-right: var(--space-2);
+  }
+  table tr td:first-child::before { content: "Period: "; }
+  table tr td:nth-child(2)::before { content: "Hours: "; }
+  table tr td:nth-child(3)::before { content: "Status: "; }
+  [data-status] {
+    text-align: left;
+  }
+}
+
+
