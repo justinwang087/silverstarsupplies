@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Partners &mdash; Silverstar Roofing Supplies</title>
-  <meta name="description" content="Browse the manufacturers Silverstar Roofing Supplies carries &mdash; BP, GAF, Owens Corning, CertainTeed, and IKO &mdash; without leaving the Silverstar site.">
+  <title>FAQ &mdash; Silverstar Roofing Supplies</title>
+  <meta name="description" content="Frequently asked questions about roofing products, ordering, and delivery at Silverstar Roofing Supplies in Scarborough, ON.">
   <link rel="icon" href="images/favicon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
 
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/partners.css">
+  <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
 
@@ -31,9 +31,9 @@
         <a href="products-shingles.html">Shingles</a>
         <a href="products-commercial.html">Commercial</a>
         <a href="products-accessories.html">Accessories</a>
-        <a href="partners.html" aria-current="page">Partners</a>
+        <a href="partners.html">Partners</a>
         <a href="location.html">Location &amp; Hours</a>
-        <a href="faq.html">FAQ</a>
+        <a href="faq.html" aria-current="page">FAQ</a>
         <a href="contact.html">Contact</a>
       </nav>
       <div class="site-header__contact">
@@ -43,41 +43,38 @@
     </div>
   </header>
 
-  <!--
-    OWNER: Person C (build plan tasks C1&ndash;C6).
-    TODO before anything else: run the C1 spike &mdash; load each of these six
-    URLs directly in a bare iframe test page and note which ones actually
-    render vs. get blocked (X-Frame-Options / CSP frame-ancestors). Some
-    of the URLs below are best guesses for now (especially the two IKO
-    product lines, which may need a deeper link than the homepage) &mdash;
-    confirm/replace them as part of that spike.
-  -->
   <main class="container section">
-    <h1>Our Partners</h1>
-    <p>Pick a brand to view their site here &mdash; or open it in a new tab.</p>
+    <h1>Frequently Asked Questions</h1>
+    <p class="product-intro">Answers to common questions about stocking, ordering, and product availability at Silverstar Roofing Supplies.</p>
 
-    <div class="partners-layout">
-      <nav class="partners-sidebar" aria-label="Brand">
-        <button class="partners-sidebar__item" data-partner="BP" data-url="https://bpcan.com/">BP</button>
-        <button class="partners-sidebar__item" data-partner="GAF" data-url="https://www.gaf.com/">GAF</button>
-        <button class="partners-sidebar__item" data-partner="Owens Corning" data-url="https://www.owenscorning.com/en-us/roofing">Owens Corning</button>
-        <button class="partners-sidebar__item" data-partner="CertainTeed" data-url="https://www.certainteed.com/">CertainTeed</button>
-        <button class="partners-sidebar__item" data-partner="IKO Cambridge" data-url="https://www.iko.com/">IKO Cambridge</button>
-        <button class="partners-sidebar__item" data-partner="IKO Dynasty" data-url="https://www.iko.com/">IKO Dynasty</button>
-      </nav>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Do you sell wholesale only?</summary>
+        <p>Yes. Silverstar Roofing Supplies is a wholesale roofing materials supplier. We do not provide installation services.</p>
+      </details>
 
-      <div class="partners-panel">
-        <div class="partners-panel__bar">
-          <span class="partners-panel__brand" data-partner-label>Select a brand</span>
-          <a class="partners-panel__open" data-partner-open href="#" target="_blank" rel="noopener">Open in new tab &#8599;</a>
-        </div>
-        <div class="partners-panel__frame-wrap">
-          <p class="partners-panel__empty" data-partner-empty>Choose a brand on the left to view their site here.</p>
-          <p class="partners-panel__blocked" data-partner-blocked hidden>This site can&rsquo;t be displayed here &mdash; it opened in a new tab instead.</p>
-          <iframe class="partners-panel__iframe" data-partner-iframe title="Partner site" hidden></iframe>
-        </div>
-      </div>
+      <details class="faq-item">
+        <summary>What products do you carry?</summary>
+        <p>We stock residential shingles, commercial roofing systems, and roofing accessories including tools, underlayment, metal accessories, vents, and downspouts.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I get a quote by phone?</summary>
+        <p>Absolutely. Call <a class="phone-link" href="tel:+16475374486">647 537 4486</a> and our team can help with pricing and product availability.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Where are you located?</summary>
+        <p>We are located at 29 Redlea Ave, Scarborough, ON M1V 4S3. You can also view our hours and directions on the <a href="location.html">Location &amp; Hours</a> page.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you carry multiple roofing brands?</summary>
+        <p>Yes. We carry roofing materials from leading brands across residential and commercial categories. See our <a href="partners.html">Partners</a> page for more information.</p>
+      </details>
     </div>
+
+    <p class="product-cta"><a class="btn btn--primary" href="contact.html">Request a quote</a></p>
   </main>
 
   <footer class="site-footer">
@@ -109,6 +106,5 @@
   </footer>
 
   <script src="js/main.js"></script>
-  <script src="js/partners-viewer.js"></script>
 </body>
 </html>
