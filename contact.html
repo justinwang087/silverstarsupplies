@@ -45,10 +45,8 @@
 
   <!--
     OWNER: Person C (build plan tasks C7&ndash;C9).
-    TODO: task C9 is a real decision &mdash; this form currently submits via
-    a mailto: link (see js/contact-form.js) since there's no backend yet.
-    Confirm whether that's good enough to ship or worth swapping for a
-    form endpoint before launch.
+    This form submits through Formspree; the endpoint is set on the form
+    below so the static site does not need its own backend.
   -->
   <main class="container section">
     <h1>Contact / Request a Quote</h1>
@@ -58,7 +56,8 @@
         <ul class="contact-errors" data-contact-errors hidden></ul>
         <p class="contact-confirmation" data-contact-confirmation hidden></p>
 
-        <form data-contact-form novalidate>
+        <form data-contact-form action="https://formspree.io/f/xjykyrkq" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Silverstar quote request">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" autocomplete="name" required>
 

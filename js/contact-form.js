@@ -3,20 +3,11 @@
   ---------------
   Owner: Person C.
 
-  Validates the contact form and sends it. Ships with a zero-backend
-  default (a mailto: link) so it works with no server at all &mdash; a
-  plain static site has nothing to POST to yet.
-
-  TODO (task C9, a real decision, not busywork): if a proper inbox / SMS
-  routing is wanted instead of "opens the visitor's email client," swap
-  buildMailtoUrl()'s usage below for a fetch() call to a lightweight
-  form backend (e.g. Formspree) and keep the same validation.
+  Validates the contact form and submits it to Formspree.
 */
 
 (function () {
   "use strict";
-
-  var DESTINATION_EMAIL = "info@silverstarsupplies.com"; // TODO: confirm the real inbox to use
 
   function initContactForm() {
     var form = document.querySelector("[data-contact-form]");
@@ -28,10 +19,7 @@
     Array.prototype.forEach.call(productRows, function (row) {
       var checkbox = row.querySelector("input[type=checkbox]");
       var quantity = row.querySelector("input[type=text]");
-      checkbox.addEventListener("change", function () {
-        quantity.disabled = !checkbox.checked;
-        if (!checkbox.checked) quantity.value = "";
-      });
+      checkbox.addEventListener("change", function () { setProductRowState(row); });
     });
 
     form.addEventListener("submit", function (event) {
@@ -56,13 +44,44 @@
         return;
       }
 
-      window.location.href = buildMailtoUrl({ name: name, phone: phone, products: products, message: message });
+      submitToFormspree(form, products, confirmation);
+    });
+  }
 
+  function setProductRowState(row) {
+    var checkbox = row.querySelector("input[type=checkbox]");
+    var quantity = row.querySelector("input[type=text]");
+    quantity.disabled = !checkbox.checked;
+    if (!checkbox.checked) quantity.value = "";
+  }
+
+  function submitToFormspree(form, products, confirmation) {
+    var submitButton = form.querySelector("button[type=submit]");
+    var formData = new FormData(form);
+    formData.append("product_summary", products.map(function (product) {
+      return product.name + " (Quantity: " + product.quantity + ")";
+    }).join(", "));
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" }
+    }).then(function (response) {
+      if (!response.ok) throw new Error("Formspree request failed");
       if (confirmation) {
         confirmation.hidden = false;
-        confirmation.textContent = "Your email app should open with your message ready to send. If it doesn't, call us at 647 537 4486.";
+        confirmation.textContent = "Thanks. Your quote request has been sent. We will get back to you soon.";
       }
       form.reset();
+      Array.prototype.forEach.call(form.querySelectorAll("[data-product-row]"), setProductRowState);
+    }).catch(function () {
+      showErrors(form, ["We couldn't send your request right now. Please try again or call us at 647 537 4486."]);
+    }).then(function () {
+      submitButton.disabled = false;
+      submitButton.textContent = "Send request";
     });
   }
 
@@ -76,26 +95,6 @@
       products.push({ name: checkbox.value, quantity: quantity });
     });
     return products;
-  }
-
-  function buildMailtoUrl(fields) {
-    var productSummary = fields.products.map(function (product) {
-      return product.quantity + " - " + product.name;
-    }).join(", ");
-    var subject = "Quote request: " + productSummary;
-    var body = [
-      "Name: " + fields.name,
-      "Phone: " + fields.phone,
-      "Products requested:",
-      fields.products.map(function (product) {
-        return "- " + product.name + " (Quantity: " + product.quantity + ")";
-      }).join("\n"),
-      "",
-      fields.message
-    ].join("\n");
-    return "mailto:" + DESTINATION_EMAIL +
-      "?subject=" + encodeURIComponent(subject) +
-      "&body=" + encodeURIComponent(body);
   }
 
   function showErrors(form, errors) {
