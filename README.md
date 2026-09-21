@@ -12,6 +12,7 @@ location.html                Location & Hours             — Person A
 products-shingles.html       )
 products-commercial.html     ) one shared template         — Person B
 products-accessories.html    )
+product-*.html               Individual product detail pages
 partners.html                Partner site viewer           — Person C
 contact.html                 Contact / Request a Quote     — Person C
 
@@ -23,6 +24,7 @@ css/partners.css              Person C
 css/contact.css               Person C
 
 js/main.js                    Mobile nav + hours badge — frozen after setup
+js/product-detail.js          Shared content for individual product pages
 js/partners-viewer.js         Person C
 js/contact-form.js            Person C
 

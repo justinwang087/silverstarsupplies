@@ -172,8 +172,14 @@
   border-radius: var(--radius);
   background: var(--color-paper);
   overflow: hidden;
+  color: inherit;
+  text-decoration: none;
 }
 .product-card:hover { border-color: var(--color-red); }
+.product-card:focus-visible {
+  outline: 3px solid var(--color-red);
+  outline-offset: 3px;
+}
 
 .product-card__media {
   margin: calc(var(--space-5) * -1) calc(var(--space-5) * -1) var(--space-4) calc(var(--space-5) * -1);
