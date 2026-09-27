@@ -45,10 +45,8 @@
 
   <!--
     OWNER: Person C (build plan tasks C7&ndash;C9).
-    TODO: task C9 is a real decision &mdash; this form currently submits via
-    a mailto: link (see js/contact-form.js) since there's no backend yet.
-    Confirm whether that's good enough to ship or worth swapping for a
-    form endpoint before launch.
+    This form submits through Formspree; the endpoint is set on the form
+    below so the static site does not need its own backend.
   -->
   <main class="container section">
     <h1>Contact / Request a Quote</h1>
@@ -58,17 +56,50 @@
         <ul class="contact-errors" data-contact-errors hidden></ul>
         <p class="contact-confirmation" data-contact-confirmation hidden></p>
 
-        <form data-contact-form novalidate>
+        <form data-contact-form action="https://formspree.io/f/xjykyrkq" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Silverstar quote request">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" autocomplete="name" required>
 
           <label for="phone">Phone</label>
           <input type="tel" id="phone" name="phone" autocomplete="tel" required>
 
-          <label for="need">What do you need?</label>
-          <input type="text" id="need" name="need" placeholder="e.g. 20 squares of IKO Cambridge" required>
+          <fieldset class="product-request">
+            <legend>Which products do you need?</legend>
+            <p class="product-request__hint">Select each product and enter the quantity you would like quoted.</p>
 
-          <label for="message">Message (optional)</label>
+            <div class="product-request__group">
+              <h2>Shingles</h2>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="BP"> <a href="products-shingles.html">BP</a></label><input type="text" name="quantity-bp" placeholder="Qty" inputmode="decimal" aria-label="Quantity for BP" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="GAF"> <a href="products-shingles.html">GAF</a></label><input type="text" name="quantity-gaf" placeholder="Qty" inputmode="decimal" aria-label="Quantity for GAF" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="Owens Corning"> <a href="products-shingles.html">Owens Corning</a></label><input type="text" name="quantity-owens-corning" placeholder="Qty" inputmode="decimal" aria-label="Quantity for Owens Corning" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="CertainTeed"> <a href="products-shingles.html">CertainTeed</a></label><input type="text" name="quantity-certainteed" placeholder="Qty" inputmode="decimal" aria-label="Quantity for CertainTeed" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="IKO Cambridge"> <a href="products-shingles.html">IKO Cambridge</a></label><input type="text" name="quantity-iko-cambridge" placeholder="Qty" inputmode="decimal" aria-label="Quantity for IKO Cambridge" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="IKO Dynasty"> <a href="products-shingles.html">IKO Dynasty</a></label><input type="text" name="quantity-iko-dynasty" placeholder="Qty" inputmode="decimal" aria-label="Quantity for IKO Dynasty" disabled></div>
+            </div>
+
+            <div class="product-request__group">
+              <h2>Commercial</h2>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="Cap-APP"> <a href="products-commercial.html">Cap-APP</a></label><input type="text" name="quantity-cap-app" placeholder="Qty" inputmode="decimal" aria-label="Quantity for Cap-APP" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="Cap-TP250"> <a href="products-commercial.html">Cap-TP250</a></label><input type="text" name="quantity-cap-tp250" placeholder="Qty" inputmode="decimal" aria-label="Quantity for Cap-TP250" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="Base-TF95"> <a href="products-commercial.html">Base-TF95</a></label><input type="text" name="quantity-base-tf95" placeholder="Qty" inputmode="decimal" aria-label="Quantity for Base-TF95" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="ProtecoBoard"> <a href="products-commercial.html">ProtecoBoard</a></label><input type="text" name="quantity-protecoboard" placeholder="Qty" inputmode="decimal" aria-label="Quantity for ProtecoBoard" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="FibreBoard"> <a href="products-commercial.html">FibreBoard</a></label><input type="text" name="quantity-fibreboard" placeholder="Qty" inputmode="decimal" aria-label="Quantity for FibreBoard" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="Others"> <a href="products-commercial.html">Others</a></label><input type="text" name="quantity-others" placeholder="Qty" inputmode="decimal" aria-label="Quantity for Others" disabled></div>
+            </div>
+
+            <div class="product-request__group">
+              <h2>Accessories</h2>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="Tools"> <a href="products-accessories.html">Tools</a></label><input type="text" name="quantity-tools" placeholder="Qty" inputmode="decimal" aria-label="Quantity for Tools" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="Roofing Accessories"> <a href="products-accessories.html">Roofing Accessories</a></label><input type="text" name="quantity-roofing-accessories" placeholder="Qty" inputmode="decimal" aria-label="Quantity for Roofing Accessories" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="Underlayment"> <a href="products-accessories.html">Underlayment</a></label><input type="text" name="quantity-underlayment" placeholder="Qty" inputmode="decimal" aria-label="Quantity for Underlayment" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="Metal Accessories"> <a href="products-accessories.html">Metal Accessories</a></label><input type="text" name="quantity-metal-accessories" placeholder="Qty" inputmode="decimal" aria-label="Quantity for Metal Accessories" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="Vents"> <a href="products-accessories.html">Vents</a></label><input type="text" name="quantity-vents" placeholder="Qty" inputmode="decimal" aria-label="Quantity for Vents" disabled></div>
+              <div class="product-request__row" data-product-row><label><input type="checkbox" name="products" value="Downspouts"> <a href="products-accessories.html">Downspouts</a></label><input type="text" name="quantity-downspouts" placeholder="Qty" inputmode="decimal" aria-label="Quantity for Downspouts" disabled></div>
+            </div>
+          </fieldset>
+
+          <label for="message">Additional message (optional)</label>
           <textarea id="message" name="message" rows="4"></textarea>
 
           <button class="btn btn--primary" type="submit">Send request</button>
