@@ -147,7 +147,7 @@ const PRODUCTS = {
     description: "Underlayment products that add a protective layer beneath the finished roof covering.",
     overview: "Underlayment supports a complete roofing system by helping protect the deck beneath shingles and other roof coverings.",
     details: "Contact us for current rolls, product options, and quantities for your next installation.",
-    related: ["accessories-underlayment-pro", "accessories-roofing", "accessories-metal"]
+    related: ["accessories-vents", "accessories-roofing", "accessories-metal"]
   },
   "accessories-metal": {
     name: "Metal Accessories",
