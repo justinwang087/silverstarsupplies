@@ -14,8 +14,10 @@ There is nothing to build, lint, or test with tooling — verify changes by open
 
 **Ownership boundaries** (see README.md for the full table) — three tracks, kept isolated so contributors don't collide:
 - `index.html`, `location.html`, `css/home.css`
-- `products-shingles.html`, `products-commercial.html`, `products-accessories.html`, `css/products.css`
+- `products-shingles.html`, `products-commercial.html`, `products-accessories.html`, the individual `product-*.html` detail pages, `js/product-detail.js`, `css/products.css`
 - `partners.html`, `contact.html`, `css/partners.css`, `css/contact.css`, `js/partners-viewer.js`, `js/contact-form.js`
+
+`faq.html` doesn't belong to any track — it reuses `css/home.css` and has no dedicated stylesheet or owner.
 
 `css/tokens.css`, `css/base.css`, and `js/main.js` are Phase-0 scaffolding and are **frozen** — treat changes to these as cross-cutting and coordinate rather than editing freely. `tokens.css` is the single source of truth for color/type/spacing; other stylesheets reference its custom properties rather than hardcoding hex values or one-off sizes. Keep it to one page-specific stylesheet per page.
 
@@ -23,7 +25,9 @@ There is nothing to build, lint, or test with tooling — verify changes by open
 
 **`js/partners-viewer.js`** drives `partners.html`: a sidebar of brand buttons swaps the `src` of a single `<iframe>` — the modern replacement for the old site's `<frameset>`. Important constraint: most manufacturer sites block being framed via `X-Frame-Options`/CSP, and a cross-origin iframe gives JS no reliable way to detect *why* it failed to load — `BLOCK_TIMEOUT_MS` is a best-effort heuristic, not a certainty. On mobile it skips the iframe entirely and opens in a new tab. Whatever the embeddability findings turn out to be per brand, the "open in new tab" fallback must keep working for all six.
 
-**`js/contact-form.js`** validates the contact form and currently submits via a `mailto:` link (zero-backend default, since there's no server). Swapping to a real form backend (e.g. Formspree) is an open decision, not yet done — see the TODO in that file if asked to change it.
+**`js/product-detail.js`** drives every `product-*.html` page from a single `PRODUCTS` object keyed by `<category>-<slug>` (e.g. `shingles-gaf`, `commercial-cap-app`). Each product page sets `data-product="<key>"` on `<body>` and an empty `<div data-product-page-content>`; the script looks up the matching entry and renders the hero, related-products, and detail sections into that div — there's no per-page markup to edit, only the data object. Adding a product means adding a `PRODUCTS` entry, a `product-<key>.html` shell (copy an existing one), and a card linking to it from the matching `products-*.html` listing page. Each entry's `related` array must reference other existing `PRODUCTS` keys — an entry pointing at a nonexistent key gets silently dropped from the rendered list but *not* from the index used to build hrefs for the remaining related cards, so a stale key skews the links for the rest of that page's related-products row (see `accessories-underlayment`, which references a `-pro` variant that doesn't exist).
+
+**`js/contact-form.js`** validates the contact form (name, phone, and at least one checked product with a quantity) and submits via `fetch()` to a Formspree endpoint (`contact.html`'s `<form action="https://formspree.io/f/...">`) rather than `mailto:`. Each product checkbox has a paired quantity `<input>` that's disabled until its checkbox is checked; selected products are serialized into a `product_summary` field before posting.
 
 **Images**: nothing is committed under `images/` yet. Pages already reference the expected filenames (`images/logo.svg`, `images/favicon.png`, `images/hero-yard.jpg`, `images/products/*.jpg`) — see `images/README.md` for the full list. Dropping in a correctly-named file is all that's needed for it to appear; no code changes required.
 
